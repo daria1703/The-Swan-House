@@ -1,6 +1,6 @@
 import React from 'react'
-import { useEffect, useState } from "react";
 import { Link, Outlet } from 'react-router-dom';
+import '../App.css';
 class Shop extends React.Component {
 
   constructor(props) {
@@ -48,7 +48,7 @@ class Shop extends React.Component {
 
         {items.map(item => (
           <section key={item.id}>
-            <p>{item.title}</p>
+            <p>{item.product_name}</p>
             <p>{item._id}</p>
             <p>{item.description}</p>
 

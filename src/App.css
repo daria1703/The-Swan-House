@@ -1,3 +1,4 @@
+
 .navbar_swan{
   display: flex;
   flex-wrap: nowrap;
@@ -11,4 +12,27 @@
   color: #C8D9D9;
 }
 
+.product_img{
+  width: auto;
+  height: 400px;
+}
+
+@media only screen and (max-width: 480px){
+  .product_img{
+    width: auto;
+    height: 300px;
+  }
+}
+
+.product_table{
+  display: flex;
+  align-items: center;
+  background-color: yellow;
+}
+
+.img_title{
+  display: block;
+  text-align: center;
+  background-color: pink;
+}
 
