@@ -26,11 +26,11 @@ const Product = () => {
       <div className='row'>
         <div className='col-md-6 col-sm-12 img_title'>
           <img className='product_img img_fluid' src={product.img} alt={product.product_name} />
-          <p>{product.product_name}</p>
         </div>
         <div className='col-md-6 col-sm-12 product_table'>
           <p>
-            Cena produktu: {product.price} zł <br />
+            {product.product_name} <br/>
+            {product.price} zł <br />
             Materiał: {product.matter} <br />
             Próba kruszcu: {product.assay} karat<br />
             Rozmiar: {product.size} <br />

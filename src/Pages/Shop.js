@@ -1,5 +1,5 @@
 import React from 'react'
-import { Link, Outlet } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import '../App.css';
 class Shop extends React.Component {
 
@@ -44,31 +44,19 @@ class Shop extends React.Component {
     // clik()
 
     return (
-      <div className="content">
-
+      <div className='products_list_container'>
         {items.map(item => (
-          <section key={item.id}>
-            <p>{item.product_name}</p>
-            <p>{item._id}</p>
-            <p>{item.description}</p>
-
+          <div key={item.id}>
             
-              <Link class="link-btn2" to={`/product/${item._id}`}>Check!</Link>
-           <Outlet/>
+            <Link class="link-btn2" to={`/product/${item._id}`}>
+              <div className='product'>
+                <img src={item.img} alt={item.product_name} className="products_img"/>
+                <p>{item.product_name}</p>
+                <p>{item.price} zł</p>
+              </div>
+            </Link>
 
-            {/* <img src={item.img}/> */}
-            {/* <div class="image">
-                  <img class="image__img" src={item.image} alt={item.title} />
-                  <div class="image__overlay image__overlay--primary">
-                    
-                    <div className="btn-div"> 
-                             <button type="submit" className="button3">
-                                 <Link class="link-btn2" to={`/film/${item.id}` }>Check!</Link></button>
-                         </div>
-                         <div class="image__title">{item.title}</div>
-                  </div>
-                </div> */}
-          </section>
+          </div>
         ))}
       </div>
     );
