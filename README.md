@@ -69,3 +69,6 @@ Projekt będzie realizowany przy wykorzystaniu podstawowych narzędzi, służąc
 - Figma
 - MongoDB
 
+**Diagram ERD**
+
+[Schemat bazy danych.drawio 20.10.2022.pdf](https://github.com/daria1703/The-Swan-House/files/10016020/Schemat.bazy.danych.drawio.20.10.2022.pdf)
