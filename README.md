@@ -1,70 +1,71 @@
-# Getting Started with Create React App
+<h1 align="center">The Swan House</h1>
+The Swan House to sklep internetowy zajmujący się sprzedażą biżuterii. 
+## Aplikacja internetowa
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+### Opis projektu 
 
-## Available Scripts
+### Rejestracja
 
-In the project directory, you can run:
+Po uruchomieniu apliakcji poprzez wpisanie w terminalu Visual Studio Code komendy npm start jako pierwsza ukazuję się podstrona rejestracji użytkownika. Wymagane dane do rejestracji to: nazwa użytkownika, e-mail oraz hasło. Po wciśnięciu przycisku "Sign up" następuje utowrzenie konta i przejście do ekranu home.
 
-### `npm start`
+![Rejestracja](https://user-images.githubusercontent.com/80101842/159140485-c53806ca-7087-49f7-9824-c1a04b3ce097.png)
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+### Logowanie
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+Gdy uzytkownik posiada już konto w serwisie to loguje się poprzez uzupełnienie formularza w zakładce Login. Podaje on e-mail oraz hasło. Po wciśnięciu przycisku "Log in", zostaje przekierowany na stronę główną.
 
-### `npm test`
+![Logowanie](https://user-images.githubusercontent.com/80101842/159140484-7df30c40-f3d9-4ad9-b9ff-475bf32bc5f7.png)
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### Home
+Użytkownik, wchodząc na sklepu internetowego The Swan House ma możliwość zobaczenia najnowyszych ofert, najbardziej popularnych przedmiotów, okazjonalnych
+koleckji biżuterii a także wyszukać produkt po marce, kolorze czy rozmiarze. Niezbędne informacje do realizacji tych funkcjonalności zostaną pobrane z specjalnie stworzonego przeze mnie na potrzeby projektu API. 
 
-### `npm run build`
+<p align="center">
+   <img src="https://user-images.githubusercontent.com/80101842/159140480-a30281ec-71ed-451b-8183-3ce8d285f39d.png">
+</p>
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### Podstrona produktów
+Gdy klient kliknie wybrany przez siebie link w nawbarze, zostanie przekierowany do strony produktów. Zostanie wyswietlona strona z listą spełniających warunek produktów. Użytkownik będzie miał możliwość przefiltrowania listy w celu znalezienia porządanego towaru.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+![Strona produktów](https://user-images.githubusercontent.com/80101842/159140486-6a746e3d-24d1-428a-bbe1-67e8fb001338.png)
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### Podstrona produktu
 
-### `npm run eject`
+Użytkownik po wybraniu z listy jednego towaru zostanie przekierowany do strony produktu.
+Strona ta zawierać będzie opis towaru, jego cenę, rozmiar, pokazowe zdjęcia, mozliwość dodania
+do listy życzeń oraz przycisk "Dodaj do koszyka".
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+![Strona produktu](https://user-images.githubusercontent.com/80101842/159140487-9dc36dac-57a1-4c81-aff9-90f374af8be8.png)
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+# Proces tworzenia projektu
+Projekt będzie realizowany przy wykorzystaniu podstawowych narzędzi, służących zarówno do projektowania warstwy wizualnej jak i do kodowania strony internetowej. W trakcie pracy używam programów **Figma** oraz **Visual Studio Code**. Do kontroli wersji oprogramowania, standardowo skorzystałam z **Github**.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+**Funkcjonalności**
+- Logowanie/Rejestrowanie użytkownika
+- Dodawanie/Usuwanie produktu z koszyka
+- Zwiększanie/Zmniejszanie ilość produktów w koszyku
+- Możliwość komentowania/polubienia przedmiotu
+- Wyszukiwanie przedmiotu po nazwie
+- Wyświetlenie ostatnio dodanych produktów
+- Filtrowanie/Sortowanie po wadze/rozmiarze/marce
+- Dezaktywacja konta użytkownika
+- Zakup produktu
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
 
-## Learn More
+**Poczynione kroki**
+- Stworzenie konceptu strony
+- Stworzenie szablonu strony
+- Inicjalizacja projektu i repozytorium
+- Stworzenie struktury strony
+- Wykorzystanie języka Javascript do stworzenia funkcjonalności strony
+- Obsługa zdarzeń na stronie przy użyciu języka Javascript
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+**Technologie**
+- REST API
+- JavaScript
+- HTML
+- CSS
+- GIT
+- Figma
+- MongoDB
 
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
