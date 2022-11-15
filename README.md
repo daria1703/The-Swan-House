@@ -45,6 +45,8 @@ Projekt będzie realizowany przy wykorzystaniu podstawowych narzędzi, służąc
 - Dodawanie/Usuwanie produktu z koszyka
 - Zwiększanie/Zmniejszanie ilość produktów w koszyku
 - Możliwość komentowania/polubienia przedmiotu
+- Możliwość dodania produktu do listy ulubionych
+- Możliwośc dodania vouchera podczas procesu zakupowego
 - Wyszukiwanie przedmiotu po nazwie
 - Wyświetlenie ostatnio dodanych produktów
 - Filtrowanie/Sortowanie po wadze/rozmiarze/marce
