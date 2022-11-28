@@ -7,6 +7,10 @@ import Contact from './Pages/Contact';
 import ErrorPage from './Pages/ErrorPage';
 import "bootstrap/dist/css/bootstrap.min.css";
 import Product from './Pages/Product';
+import PersonList from './Pages/PersonList';
+import PersonAdd from './Pages/PersonAdd';
+import PersonRemove from './Pages/PersonRemove';
+import PersonUpdate from './Pages/PersonUpdate'
 
 
 function App() {
@@ -17,6 +21,11 @@ function App() {
         <Link className="nav-item nav-link" to="/products">Shop</Link>
         <Link className="nav-item nav-link" to="/about">About</Link>
         <Link className="nav-item nav-link" to="/contact">Contact</Link>
+        <Link className="nav-item nav-link" to="/personList">PersonList</Link>
+        <Link className="nav-item nav-link" to="/personAdd">PersonAdd</Link>
+        <Link className="nav-item nav-link" to="/personRemove">PersonRemove</Link>
+        <Link className="nav-item nav-link" to="/personUpdate">PersonUpdate</Link>
+
       </nav>
       <Routes>
         <Route path="/" element={<Home />} />
@@ -24,6 +33,10 @@ function App() {
         <Route path="/product/:_id" element={<Product />} />
         <Route path="/about" element={<About />} />
         <Route path="/contact" element={<Contact />} />
+        <Route path="/personList" element={<PersonList />} />
+        <Route path="/personAdd" element={<PersonAdd />} />
+        <Route path="/personRemove" element={<PersonRemove />} />
+        <Route path="/personUpdate" element={<PersonUpdate />} />
         <Route path="*" element={<ErrorPage />} />
       </Routes>
     </Router>
