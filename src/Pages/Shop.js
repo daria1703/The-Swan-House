@@ -21,7 +21,7 @@ class Shop extends React.Component {
    */
   componentDidMount() {
 
-    fetch('https://swan-server.herokuapp.com/products')
+    fetch('http://localhost:3000/products/')
       .then(res => res.json())
       .then(json => {
         this.setState({

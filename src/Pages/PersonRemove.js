@@ -17,7 +17,7 @@ export default class PersonRemove extends React.Component {
   handleSubmit = event => {
     event.preventDefault();
 
-    axios.delete(`https://swan-server.herokuapp.com/users/${this.state._id}`)
+    axios.delete(`http://localhost:3000/users/${this.state._id}`)
       .then(res => {
         console.log(res);
         console.log(res.data);

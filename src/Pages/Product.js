@@ -9,7 +9,7 @@ const Product = () => {
 
   const fetchProduct = async (_id) => {
 
-    const url = "https://swan-server.herokuapp.com/products/" + _id;
+    const url = "http://localhost:3000/products/" + _id;
     let response = await fetch(url);
     let responseJson = await response.json();
     setProduct(responseJson);

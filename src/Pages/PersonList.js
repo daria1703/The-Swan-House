@@ -7,7 +7,7 @@ export default class PersonList extends React.Component {
   }
 
   componentDidMount() {
-    axios.get(`https://swan-server.herokuapp.com/users/`)
+    axios.get(`http://localhost:3000/users/`)
       .then(res => {
         const persons = res.data;
         this.setState({ persons });
@@ -21,8 +21,13 @@ export default class PersonList extends React.Component {
           this.state.persons
             .map(person =>
               <li key={person._id}>
-                {person.name + " "}
-                {person._id}</li>
+                Imię:  {person.name + " "} <br />
+                Nazwisko:  {person.lastName + " "} <br />
+                Email:  {person.email + " "} <br />
+                Płeć {person.sex + " "} <br />
+                Hasło: {person.password + " "} <br />
+                {/* Powtórzone hasło: {person.reEnteredPassword + " "} <br /> */}
+                Id:  {person._id}</li>
             )
         }
       </ul>

@@ -10,7 +10,8 @@ import Product from './Pages/Product';
 import PersonList from './Pages/PersonList';
 import PersonAdd from './Pages/PersonAdd';
 import PersonRemove from './Pages/PersonRemove';
-import PersonUpdate from './Pages/PersonUpdate'
+// import PersonUpdate from './Pages/PersonUpdate'
+import Login from './Pages/Login'
 
 
 function App() {
@@ -24,7 +25,8 @@ function App() {
         <Link className="nav-item nav-link" to="/personList">PersonList</Link>
         <Link className="nav-item nav-link" to="/personAdd">PersonAdd</Link>
         <Link className="nav-item nav-link" to="/personRemove">PersonRemove</Link>
-        <Link className="nav-item nav-link" to="/personUpdate">PersonUpdate</Link>
+        <Link className="nav-item nav-link" to="/login">Login</Link>
+        {/* <Link className="nav-item nav-link" to="/personUpdate">PersonUpdate</Link> */}
 
       </nav>
       <Routes>
@@ -36,7 +38,8 @@ function App() {
         <Route path="/personList" element={<PersonList />} />
         <Route path="/personAdd" element={<PersonAdd />} />
         <Route path="/personRemove" element={<PersonRemove />} />
-        <Route path="/personUpdate" element={<PersonUpdate />} />
+        <Route path="/login" element={<Login />} />
+        {/* <Route path="/personUpdate" element={<PersonUpdate />} /> */}
         <Route path="*" element={<ErrorPage />} />
       </Routes>
     </Router>
