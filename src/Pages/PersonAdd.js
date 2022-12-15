@@ -14,7 +14,8 @@ export default class PersonAdd extends React.Component {
 			password: " ",
 			reEnteredPassword: " ",
 			sex: " ",
-		}
+		};
+		this.handleSubmit = this.handleSubmit.bind(this);
 	}
 
 	handleChange = e => {
@@ -31,6 +32,7 @@ export default class PersonAdd extends React.Component {
 				.post('http://localhost:3000/users/register/', this.state)
 				.then(response => {
 					console.log(response)
+					window.location.href="./login";
 				})
 				.catch(error => {
 					console.log(error)

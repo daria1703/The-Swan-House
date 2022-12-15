@@ -12,6 +12,8 @@ import PersonAdd from './Pages/PersonAdd';
 import PersonRemove from './Pages/PersonRemove';
 // import PersonUpdate from './Pages/PersonUpdate'
 import Login from './Pages/Login'
+import UserProfile from './Pages/UserProfile';
+import ResetPassword from './Pages/ResetPassword';
 
 
 function App() {
@@ -26,6 +28,8 @@ function App() {
         <Link className="nav-item nav-link" to="/personAdd">PersonAdd</Link>
         <Link className="nav-item nav-link" to="/personRemove">PersonRemove</Link>
         <Link className="nav-item nav-link" to="/login">Login</Link>
+        <Link className="nav-item nav-link" to="/userProfile">Profile</Link>
+        <Link className="nav-item nav-link" to="/resetPassword">Reset Password</Link>
         {/* <Link className="nav-item nav-link" to="/personUpdate">PersonUpdate</Link> */}
 
       </nav>
@@ -39,6 +43,8 @@ function App() {
         <Route path="/personAdd" element={<PersonAdd />} />
         <Route path="/personRemove" element={<PersonRemove />} />
         <Route path="/login" element={<Login />} />
+        <Route path="/userProfile" element={<UserProfile />} />
+        <Route path="/resetPassword" element={<ResetPassword/>} />
         {/* <Route path="/personUpdate" element={<PersonUpdate />} /> */}
         <Route path="*" element={<ErrorPage />} />
       </Routes>
