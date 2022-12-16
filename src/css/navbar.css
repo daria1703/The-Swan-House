@@ -1,0 +1,21 @@
+.nav_swan{
+    background-color: pink ;
+    justify-content: end;
+}
+
+.logo{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+}
+
+.menu{
+    display: inline-block !important
+}
+
+.search-block{
+    display: flex;
+    justify-content: flex-end;
+    padding: 20px 20px
+}
