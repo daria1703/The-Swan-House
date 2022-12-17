@@ -1,0 +1,27 @@
+.insure-block{
+    display: flex;
+    justify-content: center;
+}
+
+.insure-block .card{
+    padding: 1rem 1rem;
+    width: 18rem; 
+    border: none;
+    justify-content: center;
+    text-align: center;
+}
+
+.insure-block .card img{
+    width: 60px;
+    height: 60px;
+}
+
+.insure-block .card a{
+    text-decoration: none;
+    color: #000;
+}
+
+.insure-block .card a:hover{
+    text-decoration: none;
+    color: rgba(0, 0, 0, 0.425);
+}

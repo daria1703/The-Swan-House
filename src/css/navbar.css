@@ -1,21 +1,62 @@
-.nav_swan{
-    background-color: pink ;
+.nav_swan {
+    background-color: pink;
     justify-content: end;
 }
 
-.logo{
+.logo {
     display: flex;
     align-items: center;
-    justify-content: center;
-    
+    justify-content: flex-end;
+    padding: 0;
 }
 
-.menu{
+.search {
+    display: inherit;
+    align-items: center;
+    justify-content: flex-end;
+    padding: 0;
+}
+
+.nav_ico {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    padding: 0;
+}
+
+.menu {
     display: inline-block !important
 }
 
-.search-block{
+.menu_2 {
+    justify-content: center
+}
+
+.search-block {
     display: flex;
     justify-content: flex-end;
     padding: 20px 20px
+}
+
+@media only screen and (max-width: 600px) {
+    .logo {
+        justify-content: center;
+        padding-bottom: 8px
+    }
+
+    .search {
+        justify-content: center;
+    }
+}
+
+
+@media only screen and (max-width: 768px) {
+    .logo {
+        justify-content: center;
+        padding-bottom: 8px
+    }
+
+    .search {
+        justify-content: center;
+    }
 }

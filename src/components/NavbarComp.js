@@ -29,7 +29,7 @@ export default class NavbarComp extends Component {
         <Navbar bg="light" expand="lg">
           <Container fluid className="menu">
             <Row>
-              <Col lg={2}>
+              <Col lg={6} className="logo">
                 <Navbar.Brand href="/">
                   <img
                     alt="logo"
@@ -40,7 +40,7 @@ export default class NavbarComp extends Component {
                   />
                 </Navbar.Brand>
               </Col>
-              <Col lg={6}>
+              <Col lg={4} className="search">
                 <Form className="d-flex">
                   <Form.Control
                     type="search"
@@ -51,7 +51,7 @@ export default class NavbarComp extends Component {
                   <Button variant="outline-success">Search</Button>
                 </Form>
               </Col>
-              <Col lg={4}>
+              <Col lg={2} className="nav_ico .d-sm-none .d-md-nome">
                 <Navbar.Brand href="/">
                   <img
                     alt="logo"
@@ -82,11 +82,11 @@ export default class NavbarComp extends Component {
                 </Navbar.Brand>
               </Col>
             </Row>
-                  
-            <Row>
-              <Col lg={12}>
+
+            <Row className="menu_2">
+              <Col xl={4}>
                 <Navbar.Toggle aria-controls="navbarScroll" />
-                  <Navbar.Collapse id="navbarScroll">
+                <Navbar.Collapse id="navbarScroll" className="menu_2">
                   <Nav
                     className="me-auto my-2 my-lg-0"
                     style={{ maxHeight: '100px' }}
@@ -115,29 +115,29 @@ export default class NavbarComp extends Component {
                 </Navbar.Collapse>
               </Col>
             </Row>
-            
 
-           
+
+
 
           </Container>
         </Navbar>
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/products" element={<Shop />} />
-        <Route path="/product/:_id" element={<Product />} />
-        <Route path="/about" element={<About />} />
-        <Route path="/contact" element={<Contact />} />
-        <Route path="/personList" element={<PersonList />} />
-        <Route path="/personAdd" element={<PersonAdd />} />
-        <Route path="/personRemove" element={<PersonRemove />} />
-        <Route path="/login" element={<Login />} />
-        <Route path="/userProfile" element={<UserProfile />} />
-        <Route path="/resetPassword" element={<ResetPassword />} />
-        {/* <Route path="/personUpdate" element={<PersonUpdate />} /> */}
-        <Route path="*" element={<ErrorPage />} />
-      </Routes>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/products" element={<Shop />} />
+          <Route path="/product/:_id" element={<Product />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/contact" element={<Contact />} />
+          <Route path="/personList" element={<PersonList />} />
+          <Route path="/personAdd" element={<PersonAdd />} />
+          <Route path="/personRemove" element={<PersonRemove />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/userProfile" element={<UserProfile />} />
+          <Route path="/resetPassword" element={<ResetPassword />} />
+          {/* <Route path="/personUpdate" element={<PersonUpdate />} /> */}
+          <Route path="*" element={<ErrorPage />} />
+        </Routes>
       </Router>
-      
+
     )
   }
 }

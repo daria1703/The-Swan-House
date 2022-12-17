@@ -1,10 +1,14 @@
 import React from 'react'
 import "bootstrap/dist/css/bootstrap.min.css";
-import { Carousel, Col, Row, Card, Container, NavDropdown, Nav, Navbar } from 'react-bootstrap';
+import { Carousel, Col, Row, Card, Container, NavDropdown, Nav, Navbar, CardImg } from 'react-bootstrap';
 // import Button from "react-bootstrap/Button"
-import slider1 from "../img/slider3_3.jpg"
-import slider2 from "../img/slider2_2.jpg"
-import slider3 from "../img/slider4_4.jpg"
+import "../css/home.css"
+import slider1 from "../img/slider3_3_3.jpg"
+import slider2 from "../img/slider2_2_2.jpg"
+import slider3 from "../img/slider4_4_4.jpg"
+import delivery from "../img/package_blue.png"
+import brand from "../img/blie_brand.png"
+import diamont from "../img/blue_diamont.png"
 
 function Home() {
   return (
@@ -49,45 +53,39 @@ function Home() {
       
       <Container>
       <Row>
-        <Col lg={4}>
-          <Card style={{ width: '18rem' }}>
+      <Col lg={4} className="insure-block">
+          <Card>
             <Card.Body>
-              <Card.Title>Card Title</Card.Title>
-              <Card.Subtitle className="mb-2 text-muted">Card Subtitle</Card.Subtitle>
-              <Card.Text>
-                Some quick example text to build on the card title and make up the
-                bulk of the card's content.
-              </Card.Text>
-              <Card.Link href="#">Card Link</Card.Link>
-              <Card.Link href="#">Another Link</Card.Link>
+              <Card.Link href="#" style={{height:'100'}}> <Card.Img src={diamont} />
+                <Card.Title>Highest Quality</Card.Title>
+                <Card.Text>
+                  We guarantee the highest quality of our products
+                </Card.Text>
+              </Card.Link>
             </Card.Body>
           </Card>
         </Col>
-        <Col lg={4}>
-          <Card style={{ width: '18rem' }}>
+        <Col lg={4} className="insure-block">
+          <Card>
             <Card.Body>
-              <Card.Title>Card Title</Card.Title>
-              <Card.Subtitle className="mb-2 text-muted">Card Subtitle</Card.Subtitle>
-              <Card.Text>
-                Some quick example text to build on the card title and make up the
-                bulk of the card's content.
-              </Card.Text>
-              <Card.Link href="#">Card Link</Card.Link>
-              <Card.Link href="#">Another Link</Card.Link>
+              <Card.Link href="#" style={{height:'100'}}> <Card.Img src={delivery} />
+                <Card.Title>Fast Shipping</Card.Title>
+                <Card.Text>
+                 Parcel at your home in 24 hour or less!
+                </Card.Text>
+              </Card.Link>
             </Card.Body>
           </Card>
         </Col>
-        <Col lg={4}>
-          <Card style={{ width: '18rem' }}>
+        <Col lg={4} className="insure-block">
+          <Card>
             <Card.Body>
-              <Card.Title>Card Title</Card.Title>
-              <Card.Subtitle className="mb-2 text-muted">Card Subtitle</Card.Subtitle>
-              <Card.Text>
-                Some quick example text to build on the card title and make up the
-                bulk of the card's content.
-              </Card.Text>
-              <Card.Link href="#">Card Link</Card.Link>
-              <Card.Link href="#">Another Link</Card.Link>
+              <Card.Link href="#" style={{height:'100'}}> <Card.Img src={brand} />
+                <Card.Title>Known Brands</Card.Title>
+                <Card.Text>
+                  We have well-known and loved brands with us
+                </Card.Text>
+              </Card.Link>
             </Card.Body>
           </Card>
         </Col>
