@@ -12,21 +12,26 @@ import PersonList from '../Pages/PersonList';
 import PersonAdd from '../Pages/PersonAdd';
 import PersonRemove from '../Pages/PersonRemove';
 // import PersonUpdate from './Pages/PersonUpdate'
-import Login from '../Pages/Login'
+import Login from '../Pages/Login';
+import Payment from "../Pages/Payment"
 import UserProfile from '../Pages/UserProfile';
 import ResetPassword from '../Pages/ResetPassword';
-import logo from '../img/logo.png'
-import bascet from '../img/koszyk.png'
-import heart from '../img/heart.png'
-import user from '../img/user.png'
-import "../css/navbar.css"
+import logo from '../img/logo.png';
+import bascet from '../img/koszyk.png';
+import heart from '../img/heart.png';
+import user from '../img/user.png';
+import "../css/navbar.css";
+import search from "../img/search.png"
+// import ShoppingBagOutlinedIcon from '@mui/icons-material/ShoppingBagOutlined';
+import Badge from '@mui/material/Badge';
 
 
 export default class NavbarComp extends Component {
   render() {
+    // const isLoggedIn = window.localStorage.getItem("loggedIn");
     return (
       <Router>
-        <Navbar bg="light" expand="lg">
+        <Navbar  expand="lg">
           <Container fluid className="menu">
             <Row>
               <Col lg={6} className="logo">
@@ -45,16 +50,23 @@ export default class NavbarComp extends Component {
                   <Form.Control
                     type="search"
                     placeholder="Search"
-                    className="me-2"
+                    className="searcher"
                     aria-label="Search"
                   />
-                  <Button variant="outline-success">Search</Button>
+                  <Button className="button_search"><img
+                    alt="user"
+                    src={search}
+                    width="20"
+                    height="20"
+                    className="d-inline-block align-center"
+                  /></Button>
+                  
                 </Form>
               </Col>
               <Col lg={2} className="nav_ico .d-sm-none .d-md-nome">
                 <Navbar.Brand href="/">
                   <img
-                    alt="logo"
+                    alt="user"
                     src={user}
                     width="35"
                     height="35"
@@ -62,18 +74,32 @@ export default class NavbarComp extends Component {
                   />
                 </Navbar.Brand>
                 <Navbar.Brand href="/">
-                  <img
-                    alt="logo"
+                {/* <Badge className="badge_search">
+                <img
+                    alt="bascet"
                     src={bascet}
-                    width="25"
+                    width="23"
                     height="25"
                     padding-bottom="3px"
                     className="d-inline-block align-center"
                   />
+                  4
+                </Badge>
+                    <span className="visually-hidden">unread messages</span> */}
+                    <Badge badgeContent={4} color="primary">
+                      {/* <ShoppingBagOutlinedIcon color="action" className="shopping-bag"/> */}
+                      <img
+                    alt="bascet"
+                    src={bascet}
+                    width="23"
+                    height="25"
+                    className="d-inline-block align-center"
+                  />
+                    </Badge>
                 </Navbar.Brand>
                 <Navbar.Brand href="/">
                   <img
-                    alt="logo"
+                    alt="heart"
                     src={heart}
                     width="25"
                     height="25"
@@ -99,6 +125,7 @@ export default class NavbarComp extends Component {
                     <Nav.Link as={Link} to={"/personList"}>Users</Nav.Link>
                     <Nav.Link as={Link} to={"/personAdd"}>Register</Nav.Link>
                     <Nav.Link as={Link} to={"/login"}>Login</Nav.Link>
+                    <Nav.Link as={Link} to={"/payment"}>Payment</Nav.Link>
                     <NavDropdown title="Account" id="navbarScrollingDropdown">
                       <NavDropdown.Item as={Link} to={"/userProfile"}>Profile</NavDropdown.Item>
                       <NavDropdown.Item as={Link} to={"/personRemove"}>Remove your account</NavDropdown.Item>
@@ -131,7 +158,9 @@ export default class NavbarComp extends Component {
           <Route path="/personAdd" element={<PersonAdd />} />
           <Route path="/personRemove" element={<PersonRemove />} />
           <Route path="/login" element={<Login />} />
+          <Route path="/payment" element={<Payment />} />
           <Route path="/userProfile" element={<UserProfile />} />
+          {/* <Route path="/login" element={isLoggedIn == "ture" ? <UserProfile/> : <Login />} /> */}
           <Route path="/resetPassword" element={<ResetPassword />} />
           {/* <Route path="/personUpdate" element={<PersonUpdate />} /> */}
           <Route path="*" element={<ErrorPage />} />

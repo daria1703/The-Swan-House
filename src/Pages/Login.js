@@ -45,6 +45,8 @@ export default class Login extends React.Component {
             if (data.status === "ok"){
                 alert("Login successful");
                 window.localStorage.setItem("token", data.data);
+                window.localStorage.setItem("loggedIn", true);
+                // window.localStorage.setItem("token", data.data);
                 window.location.href="./userProfile";
             }
         })

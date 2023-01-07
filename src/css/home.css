@@ -10,6 +10,9 @@
     justify-content: center;
     text-align: center;
 }
+.category-block .card{
+    border: none;
+}
 
 .insure-block .card img{
     width: 60px;

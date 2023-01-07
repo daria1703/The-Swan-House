@@ -9,6 +9,7 @@ import slider3 from "../img/slider4_4_4.jpg"
 import delivery from "../img/package_blue.png"
 import brand from "../img/blie_brand.png"
 import diamont from "../img/blue_diamont.png"
+import CategoryItemsquer from '../components/CategoryItemsquer'
 
 function Home() {
   return (
@@ -91,6 +92,9 @@ function Home() {
         </Col>
       </Row>
       </Container>
+      
+      <CategoryItemsquer/>
+     
 
     </div>
   )
