@@ -1,14 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import { useParams } from "react-router-dom";
-import Tab from 'react-bootstrap/Tab';
-import Tabs from 'react-bootstrap/Tabs';
 import Accordion from 'react-bootstrap/Accordion';
 import StarOutlineIcon from '@mui/icons-material/StarOutline';
-import { Link } from 'react-router-dom';
 import FavoriteIcon from '@mui/icons-material/Favorite';
 import AddIcon from '@mui/icons-material/Add';
 import RemoveIcon from '@mui/icons-material/Remove';
+import {Button ,Container, Form, Select} from 'react-bootstrap'
 import '../App.css';
+
 
 const Product = () => {
 
@@ -49,22 +48,34 @@ const Product = () => {
           </div>
           <div className="size">
             <p>Check your size: &nbsp;</p>
-            <div className="sizes"> 
-              <a href="!#">
+            <Form.Select name="size" aria-label="size" className="select">
+           {product.size.map((s) =>(
+            <option value="4" key={s}>{s}</option>
+           ))}
+           
+           <option value="5">{product.size}</option>
+           <option value="6">{product.size}</option>
+           <option value="7">{product.size}</option>
+           <option value="8">{product.size}</option>
+           <option value="9">{product.size}</option>
+         </Form.Select>
+            
+            {/* <div className="sizes"> 
+              <a href="/">
                 <div className="button-size">48</div>
               </a>
-              <a href="!#">
+              <a href="/">
                 <div className="button-size">48</div>
               </a>
-              <a href="!#">
+              <a href="/">
                 <div className="button-size">48</div>
               </a>
-            </div>
+            </div> */}
           </div>
           <div className="lists">
           <div className="btn-wishlist">
           <p>Add To Wishlist &nbsp;</p>
-            <a href="#">
+            <a href="/">
                 <FavoriteIcon/>
             </a>
           </div>
@@ -74,7 +85,7 @@ const Product = () => {
                 1
               </div>
             < RemoveIcon/>
-            <a href="#">
+            <a href="/">
                 <div className="btn-add-to-cart">Add To Cart</div>
             </a>
           </div>
@@ -85,23 +96,6 @@ const Product = () => {
       </div>
         <div className="row">
           <div className="col-12">
-            {/* <Tabs
-              defaultActiveKey="profile"
-              id="uncontrolled-tab-example"
-              className="mb-3"
-            >
-              <Tab eventKey="description" title="Description">
-                {product.description} 
-              </Tab>
-              <Tab eventKey="details" title="Details">
-                Materiał: {product.matter} <br />
-                Próba kruszcu: {product.assay} karat<br />
-                Rozmiar: {product.size} <br />
-                Producent: {product.brand} <br />
-                Kategoria: {product.category} <br />
-              </Tab>
-              <Tab eventKey="contact" title="Contact" ></Tab>
-            </Tabs> */}
             <Accordion defaultActiveKey="0" flush className="accordion">
       <Accordion.Item eventKey="0">
         <Accordion.Header>Informaction </Accordion.Header>
@@ -112,10 +106,10 @@ const Product = () => {
             </div>
             <div className="col-lg-6 col-sm-12"> 
                 Ore: {product.matter} <br />
-                Assay: {product.assay} karat<br />
+                Assay: {product.assay} carats<br />
                 Size: {product.size} <br />
                 Brand: {product.brand} <br />
-                category: {product.category} <br />
+                Category: {product.category} <br />
             </div>
           </div>
         </Accordion.Body>

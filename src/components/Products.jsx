@@ -1,12 +1,87 @@
-import React from 'react'
-import { Link, useLocation } from 'react-router-dom';
+import { useEffect, useState } from "react";
+import styled from "styled-components";
+import { popularProducts } from "../data";
+import ProductOnList from "../Pages/ProductOnList";
+import axios from "axios";
 import {Button ,Container, Form, Select} from 'react-bootstrap'
-import { useState } from "react";
-import '../App.css';
-import Products from "../components/Products";
-import LocalMallOutlinedIcon from '@mui/icons-material/LocalMallOutlined';
-import FavoriteBorderOutlinedIcon from '@mui/icons-material/FavoriteBorderOutlined';
-import SearchOutlinedIcon from '@mui/icons-material/SearchOutlined';
+
+
+const Products = ({ cat, filters, sort }) => {
+  console.log(cat, filters, sort)
+  const [products, setProducts] = useState([]);
+  const [filteredProducts, setFilteredProducts] = useState([]);
+
+  useEffect(() => {
+    const getProducts = async () => {
+      try {
+        const res = await axios.get(
+          cat
+            ? `http://localhost:3000/products?category=${cat}`
+            : "http://localhost:3000/products"
+        );
+        setProducts(res.data);
+      } catch (err) {}
+    };
+    getProducts();
+  }, [cat]);
+
+  useEffect(() => {
+    cat &&
+      setFilteredProducts(
+        products.filter((item) =>
+          Object.entries(filters).every(([key, value]) =>
+            item[key].includes(value)
+          )
+        )
+      );
+  }, [products, cat, filters]);
+
+  useEffect(() => {
+    if (sort === "newest") {
+      setFilteredProducts((prev) =>
+        [...prev].sort((a, b) => a.createdAt - b.createdAt)
+      );
+    } 
+    if (sort === "lowtohigh") {
+      setFilteredProducts((prev) =>
+        [...prev].sort((a, b) => a.net_price - b.net_price)
+      );
+    } if (sort === "hightolow") {
+      setFilteredProducts((prev) =>
+        [...prev].sort((a, b) => b.net_price - a.net_price)
+      );
+    } if (sort === "atoz") {
+      setFilteredProducts((prev) =>
+        [...prev].sort((a, b) => a.product_name.localeCompare(b.product_name))
+      );
+    }
+    if (sort === "ztoa") {
+      setFilteredProducts((prev) =>
+        [...prev].sort((a, b) => b.product_name.localeCompare(a.product_name))
+      );
+    }
+  }, [sort]);
+
+  return (
+    <Container>
+      {cat
+        ? filteredProducts.map((item) => <ProductOnList item={item} key={item.id} />)
+        : products
+            .slice(0, 4)
+            .map((item) => <ProductOnList item={item} key={item.id} />)}
+    </Container>
+  );
+};
+
+export default Products;
+
+// import React from 'react'
+// import { Link, useLocation } from 'react-router-dom';
+// import {Button ,Container, Form, Select} from 'react-bootstrap'
+// import '../App.css';
+// import LocalMallOutlinedIcon from '@mui/icons-material/LocalMallOutlined';
+// import FavoriteBorderOutlinedIcon from '@mui/icons-material/FavoriteBorderOutlined';
+// import SearchOutlinedIcon from '@mui/icons-material/SearchOutlined';
 
 // class Shop extends React.Component {
 
@@ -120,67 +195,3 @@ import SearchOutlinedIcon from '@mui/icons-material/SearchOutlined';
 // }
 
 // export default Shop;
-
-
-const Shop = () => {
-  const location = useLocation();
-  console.log(location)
-  console.log(location.pathname.split("/")[2])
-  const cat = location.pathname.split("/")[2];
-  const [filters, setFilters] = useState({});
-  const [sort, setSort] = useState("newest");
-
-  const handleFilters = (e) => {
-    const value = e.target.value;
-    setFilters({
-      ...filters,
-      [e.target.name]: value,
-    });
-  };
-
-  console.log(filters)
-
-  return(
-    <div> 
-        <h1 className="title">{cat}</h1>
-       <div className="filters">
-        <div className="filter">
-        {/* <Form.Select name="weight" onClick={handleFilters} aria-label="weight" className="select">
-           <option>Weight</option>
-           <option value="1">1</option>
-           <option value="2">2</option>
-          <option value="3">3</option>
-         </Form.Select> */}
-         <Form.Select name="size" onClick={handleFilters} aria-label="size" className="select">
-           <option >Size</option>
-           <option value="4">4</option>
-           <option value="5">5</option>
-           <option value="6">6</option>
-           <option value="7">7</option>
-           <option value="8">8</option>
-           <option value="9">9</option>
-         </Form.Select>
-         <Form.Select name="brand" onClick={handleFilters} aria-label="brand" className="select">
-           <option >Brand</option>
-           <option value="YES">YES</option>
-           <option value="APART">APART</option>
-          <option value="W.KRUK">W.KRUK</option>
-         </Form.Select>
-        </div>
-        <div className="filter">
-        
-         <Form.Select aria-label="sort" className="select" onChange={(e) => setSort(e.target.value)}>
-            <option value="newest">New</option>
-           <option value="atoz">Name, A to Z</option>
-           <option value="ztoa">Name Z to A</option>
-           <option value="lowtohigh">Price, low to high</option>
-           <option value="hightolow">Price, high to low</option>
-         </Form.Select>
-        </div>
-       </div>
-       <Products cat={cat} filters={filters} sort={sort} />
-   </div>
-  )
-}
-
-export default Shop

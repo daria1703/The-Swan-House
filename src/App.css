@@ -145,6 +145,24 @@ span {
   width: fit-content;
 }
 
+.conract_card{
+  border: 1px solid #E8EAF6;
+  display: flex;
+  flex-direction: column;
+  padding-top: 30px;
+  padding-bottom: 30px;
+  align-items: center;
+}
+
+.conract_card p{
+  margin-top: 10px;
+  font-size:
+}
+
+.icon_contact{
+  font-size: 40px !important;
+}
+
 .select{
   width:  100px;
   margin-right: 10px;
@@ -155,6 +173,11 @@ span {
 .title{
   margin: 30px 70px 30px 75px;
   color: #103946;
+  text-transform: capitalize;
+}
+
+.title_contact{
+  margin: 30px 0px 30px 5px;
 }
 
 .accordion-button{
@@ -262,6 +285,10 @@ a{
 
 .accordion{
   margin-bottom: 30px
+}
+
+.mailto:hover{
+  color: #01394655
 }
 
 .count-cart{

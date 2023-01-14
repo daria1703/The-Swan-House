@@ -1,7 +1,8 @@
 import React from 'react';
 import axios from 'axios';
 import "../css/register.css"
-
+import logo from '../img/logo.png';
+import bg from '../img/bg-login_register.png'
 
 export default class PersonAdd extends React.Component {
 	constructor(props) {
@@ -44,19 +45,15 @@ export default class PersonAdd extends React.Component {
 
 	render() {
 		return (
-			//   <div>
-			//     <form onSubmit={this.handleSubmit}>
-			//       <label>
-			//         Person Name:
-			//         <input type="text" name="name" onChange={this.handleChange} />
-			//       </label>
-			//       <button type="submit">Add</button>
-			//     </form>
-			//   </div>
-
 			<div className='register'>
-				<form onSubmit={this.handleSubmit}>
-					<h1>Register</h1>
+				<img src={bg} alt="background" className=".d-none .d-lg-block"/>
+				<form onSubmit={this.handleSubmit} className="register_form">
+					<div className="logo_container">
+						<p>The swan house</p>
+						<img src={logo} alt="logo" className="logo_register"/>
+						<p>The swan house</p>
+					</div>
+					<h1>Create An Account</h1>
 					<input type="text" name="name" placeholder='Your Name' value={this.name} onChange={this.handleChange} />
 					<input type="text" name="lastName" placeholder='Your Last Name' value={this.lastName} onChange={this.handleChange} />
 					<input type="text" name="email" value={this.email} placeholder='Your Email' onChange={this.handleChange} />
@@ -74,7 +71,11 @@ export default class PersonAdd extends React.Component {
 					</div> */}
 					<input type="password" name="password" value={this.password} placeholder='Your Password' onChange={this.handleChange} />
 					<input type="password" name="reEnteredPassword" value={this.reEnteredPassword} placeholder='Re-enter Password' onChange={this.handleChange} />
-					<button type="submit" onChange={this.handleSubmitS} className="btn btn-primary">Register</button>
+					<div className="arregment">
+						By creating an account, I consent to the <br/>processing  of my personal data in accordance <br/>with the <b>PRIVACY  POLICY</b>
+					</div>
+					<button type="submit" onChange={this.handleSubmitS} className="btn btn-primary btn-register">Create</button>
+					<p>Already have an account? <a href="./login">SIGN IN</a></p>
 				</form>
 			</div>
 		)

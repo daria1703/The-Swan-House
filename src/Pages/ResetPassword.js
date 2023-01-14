@@ -1,5 +1,7 @@
 import React from "react";
-import "../css/login.css";
+import "../css/reset_password.css";
+import logo from '../img/logo.png';
+import KeyboardArrowLeftIcon from '@mui/icons-material/KeyboardArrowLeft';
 
 export default class ResetPassword extends React.Component {
 
@@ -38,12 +40,18 @@ export default class ResetPassword extends React.Component {
 
     render() {
         return(
-            <div className="login">
-                <form onSubmit={this.handleSubmit}>
-                <h1>Reset Password</h1>
+            <div className="reset">
+                <form className="reset_form" onSubmit={this.handleSubmit}>
+                <div className="logo_container">
+						<p>The swan house</p>
+						<img src={logo} alt="logo" className="logo_reset"/>
+						<p>The swan house</p>
+					</div>
+                <h1 className="h1_reste">Forgot password?</h1>
+                <p>No worries, we'll send you reset instruction</p>
                 <input type="email" name="email" onChange={(e) => this.setState({email: e.target.value})} placeholder="Enter your e-mail"/>
-                <button className="btn btn-primary" onClick={this.handleSubmit}>Submit</button>
-                <a href="/login">Sign up</a>
+                <button className="btn btn-primary btn-reset" onClick={this.handleSubmit}>Reset Password</button>
+                <a href="/login" className="reset-a"><KeyboardArrowLeftIcon/>Back to <strong>SIGN IN</strong></a>
                 </form>
             </div>
         )

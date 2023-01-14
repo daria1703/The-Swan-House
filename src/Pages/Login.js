@@ -1,6 +1,7 @@
 import React from "react";
 import "../css/login.css";
-// import axios from "axios";
+import logo from '../img/logo.png';
+import bg from '../img/login.png'
 
 export default class Login extends React.Component {
 
@@ -56,13 +57,20 @@ export default class Login extends React.Component {
     render() {
         return(
             <div className="login">
-                <h1>Login</h1>
-                <form onSubmit={this.handleSubmit}>
+                <img src={bg} alt="background"/>
+                <form onSubmit={this.handleSubmit} className="login_form">
+                <div className="logo_container">
+						<p>The swan house</p>
+						<img src={logo} alt="logo" className="logo_register"/>
+						<p>The swan house</p>
+					</div>
+                <h1>Welcom Back!</h1>
                 <input type="email" name="email" onChange={(e) => this.setState({email: e.target.value})} placeholder="Enter your e-mail"/>
                 <input type="password" name="password" placeholder='Your Password' onChange={(e) => this.setState({password: e.target.value})} />
-                <button className="btn btn-primary" onClick={this.handleSubmit}>Login</button>
-                or
-                <a href="/personAdd" className="btn btn-primary">Register</a>
+                <button className="btn btn-primary btn-login" onClick={this.handleSubmit}>Login</button>
+                <a href="./resetPassword" className="login-a">Forgot password?</a>
+                <p>Haven't got an account? <a href="/personAdd" className="register-a">SIGN UP </a></p>
+
                 </form>
             </div>
         )

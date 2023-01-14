@@ -6,6 +6,7 @@ import Shop from '../Pages/Shop';
 import About from '../Pages/About';
 import Contact from '../Pages/Contact';
 import ErrorPage from '../Pages/ErrorPage';
+import Cart from '../Pages/Cart'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Product from '../Pages/Product';
 import PersonList from '../Pages/PersonList';
@@ -28,7 +29,7 @@ import Badge from '@mui/material/Badge';
 
 export default class NavbarComp extends Component {
   render() {
-    // const isLoggedIn = window.localStorage.getItem("loggedIn");
+    
     return (
       <Router>
         <Navbar  expand="lg">
@@ -119,17 +120,18 @@ export default class NavbarComp extends Component {
                     navbarScroll
                   >
                     <Nav.Link as={Link} to={"/"}>Home</Nav.Link>
-                    <Nav.Link as={Link} to={"/products"}>Shop</Nav.Link>
+                    <Nav.Link as={Link} to={"/products/woman"}>Shop</Nav.Link>
                     <Nav.Link as={Link} to={"/about"}>About</Nav.Link>
                     <Nav.Link as={Link} to={"/contact"}>Contact</Nav.Link>
                     <Nav.Link as={Link} to={"/personList"}>Users</Nav.Link>
                     <Nav.Link as={Link} to={"/personAdd"}>Register</Nav.Link>
                     <Nav.Link as={Link} to={"/login"}>Login</Nav.Link>
                     <Nav.Link as={Link} to={"/payment"}>Payment</Nav.Link>
+                    <Nav.Link as={Link} to={"/cart"}>Cart</Nav.Link>
                     <NavDropdown title="Account" id="navbarScrollingDropdown">
                       <NavDropdown.Item as={Link} to={"/userProfile"}>Profile</NavDropdown.Item>
                       <NavDropdown.Item as={Link} to={"/personRemove"}>Remove your account</NavDropdown.Item>
-                      <NavDropdown.Item as={Link} to={"/resetPassword"}>Reset your password</NavDropdown.Item>
+                      {/* <NavDropdown.Item as={Link} to={"/resetPassword"}>Reset your password</NavDropdown.Item> */}
                       <NavDropdown.Divider />
                       <NavDropdown.Item as={Link} to={"/"}>
                         Log out
@@ -151,6 +153,7 @@ export default class NavbarComp extends Component {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/products" element={<Shop />} />
+          <Route path="/products/:category" element={<Shop />} />
           <Route path="/product/:_id" element={<Product />} />
           <Route path="/about" element={<About />} />
           <Route path="/contact" element={<Contact />} />
@@ -159,6 +162,7 @@ export default class NavbarComp extends Component {
           <Route path="/personRemove" element={<PersonRemove />} />
           <Route path="/login" element={<Login />} />
           <Route path="/payment" element={<Payment />} />
+          <Route path="/cart" element={<Cart />} />
           <Route path="/userProfile" element={<UserProfile />} />
           {/* <Route path="/login" element={isLoggedIn == "ture" ? <UserProfile/> : <Login />} /> */}
           <Route path="/resetPassword" element={<ResetPassword />} />
