@@ -131,6 +131,18 @@ hr{
     justify-content: space-between
 }
 
+.btn_stripe{
+    background-color: #013946;
+    color: #fff;
+    border: 1px solid #013946
+}
+
+.btn_stripe:hover{
+    background-color: #fff;
+    color: #013946;
+    border: 1px solid #013946
+}
+
 @media only screen and (max-width: 991px) {
     .top_texts{
         display: none

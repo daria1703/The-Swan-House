@@ -6,41 +6,23 @@ import Remove from '@mui/icons-material/Remove';
 import k1 from '../img/k1.jpg'
 import p1 from '../img/p1.jpg'
 import { useSelector } from 'react-redux'
+import StripeCheckout from "react-stripe-checkout";
+import { useState } from 'react';
+import {Button} from 'react-bootstrap'
+
+const KEY = process.env.REACT_APP_STRIPE
 
 const Cart = () => {
 
-    // constructor(props) {
-    // 	super(props)
+  const cart = useSelector((state)=>state.cart)
+  const [stripeToken, setStripeToken] = useState(null)
 
-    // 	this.state = {
-    // 		email: " ",
-    // 	}
-    //     this.handleSubmit = this.handleSubmit.bind(this)
-    // }
+  const onToken = (token) => {
+    stripeToken(token);
+  };
 
-    // handleSubmit = e => {
-    // 	e.preventDefault()
-    //     const { email } = this.state;
-    //     console.log(email);
-    //     fetch("http://localhost:3000/users/forgetPassword", {
-    //         method: "POST",
-    //         crossDomain: true,
-    //         headers:{
-    //             "Content-Type": "application/json",
-    //             Accept: "application/json",
-    //             "Access-Control-Allow-Origin": "*"
-    //         },
-    //         body: JSON.stringify({
-    //             email
-    //         }),
-    //     })
-    //     .then((res) => res.json())
-    //     .then((data) => {
-    //         console.log(data, "ResestPassword");
-    //         alert(data.status);
-    //     })
-    // }
-      const cart = useSelector(state=>state.cart)
+  console.log(stripeToken)
+
         return (
             <div className="container">
               <div className="wraper1">
@@ -51,7 +33,9 @@ const Cart = () => {
                     <div className="top_text">Shopping Bag(2)</div>
                     <div className="top_text">Your Wishlist (0)</div>
                   </div>
-                  <a href=""><div className="btn primary-btn top_button">CHECKOUT NOW</div></a>
+                  <StripeCheckout name="The Swan House" billingAddress shippingAddress description = {`Your total is $${cart.total}`} amount={cart.total*100} token={onToken} stripeKey={KEY}>
+                    <a><div className="btn primary-btn top_button">CHECKOUT NOW</div></a>
+                    </StripeCheckout>
                 </div>
                 <div className="bottom">
                   <div className="info2">
@@ -99,7 +83,9 @@ const Cart = () => {
                         <div className="summary_item_text" type="total">Total</div>
                         <div className="summary_item_price">$ {cart.total}</div>
                     </div>
-                    <a href="" className="btn btn-primary check-btn top_button"><div>CHECKOUT NOW</div></a>
+                    <StripeCheckout name="The Swan House" billingAddress shippingAddress description = {`Your total is $${cart.total}`} amount={cart.total*100} token={onToken} stripeKey={KEY}>
+                    <a><div className="btn primary-btn top_button">CHECKOUT NOW</div></a>
+                    </StripeCheckout>
                 </div>
                 </div>
               </div>
