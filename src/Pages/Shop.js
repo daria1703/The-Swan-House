@@ -152,29 +152,29 @@ const Shop = () => {
           <option value="3">3</option>
          </Form.Select> */}
          <Form.Select name="size" onClick={handleFilters} aria-label="size" className="select">
-           <option >Size</option>
-           <option value="4">4</option>
-           <option value="5">5</option>
-           <option value="6">6</option>
-           <option value="7">7</option>
-           <option value="8">8</option>
-           <option value="9">9</option>
+            <option >Size</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+            <option value="6">6</option>
+            <option value="7">7</option>
+            <option value="8">8</option>
+            <option value="9">9</option>
          </Form.Select>
          <Form.Select name="brand" onClick={handleFilters} aria-label="brand" className="select">
-           <option >Brand</option>
-           <option value="YES">YES</option>
-           <option value="APART">APART</option>
-          <option value="W.KRUK">W.KRUK</option>
+            <option >Brand</option>
+            <option value="YES">YES</option>
+            <option value="APART">APART</option>
+            <option value="W.KRUK">W.KRUK</option>
          </Form.Select>
         </div>
         <div className="filter">
         
          <Form.Select aria-label="sort" className="select" onChange={(e) => setSort(e.target.value)}>
+            <option value="atoz">Name, A to Z</option>
+            <option value="ztoa">Name Z to A</option>
             <option value="newest">New</option>
-           <option value="atoz">Name, A to Z</option>
-           <option value="ztoa">Name Z to A</option>
-           <option value="lowtohigh">Price, low to high</option>
-           <option value="hightolow">Price, high to low</option>
+            <option value="lowtohigh">Price, low to high</option>
+            <option value="hightolow">Price, high to low</option>
          </Form.Select>
         </div>
        </div>

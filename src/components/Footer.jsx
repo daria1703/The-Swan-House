@@ -102,13 +102,13 @@ export default function App() {
               </p>
               <p>
                 <LocalPostOfficeOutlinedIcon className="icon_footer me-2" icon='envelope' />
-                info@swanshop.com
+                <a className="mailto" href="mailto:info@swanshop.com">info@swanshop.com</a>
               </p>
               <p>
-                <LocalPhoneOutlinedIcon className="icon_footer me-2" icon='phone' /> + 01 234 567 88
+                <LocalPhoneOutlinedIcon className="icon_footer me-2" icon='phone' /><a className="mailto" href="tel:01 234 567 88">+ 01 234 567 88</a>
               </p>
               <p>
-                <LocalPhoneOutlinedIcon className="icon_footer me-2" icon='print'/> + 01 234 567 89
+                <LocalPhoneOutlinedIcon className="icon_footer me-2" icon='print'/> <a className="mailto" href="tel:01 234 567 66">+ 01 234 567 66</a>
               </p>
             </Col>
           </Row>

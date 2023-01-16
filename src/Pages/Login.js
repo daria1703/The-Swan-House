@@ -50,9 +50,7 @@ export default class Login extends React.Component {
                 // window.localStorage.setItem("token", data.data);
                 window.location.href="./userProfile";
             }
-        })
-	}
-
+        })}
 
     render() {
         return(

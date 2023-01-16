@@ -44,7 +44,7 @@ export default class UserProfile extends React.Component{
             <div>
                 Name: {this.state.userData.name} <br/>
                 Email: {this.state.userData.email}
-                <button onClick={this.logout} className="btn btn-primary">Log out</button>
+                <button onClick={this.logout} className="btn btn-primary btn-login">Log out</button>
             </div>
         )
     }

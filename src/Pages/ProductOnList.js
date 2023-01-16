@@ -24,8 +24,8 @@ const ProductOnList = ({item}) => {
                  Add to cart
                </Button>
                <div className="icons">
-                 <a href="#!"><LocalMallOutlinedIcon className="icon"/></a>
-                 <a href="#!"><SearchOutlinedIcon className="icon"/></a>
+                 <a href="#!"><LocalMallOutlinedIcon className="icon" /></a>
+                 <Link to={`/product/${item._id}`}><SearchOutlinedIcon className="icon"/></Link>
                  <a href="#!"><FavoriteBorderOutlinedIcon className="icon"/></a>
                </div>  
              </div>

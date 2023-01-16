@@ -156,7 +156,6 @@ span {
 
 .conract_card p{
   margin-top: 10px;
-  font-size:
 }
 
 .icon_contact{
@@ -165,6 +164,13 @@ span {
 
 .select{
   width:  100px;
+  margin-right: 10px;
+  border-radius: 0 !important;
+  border: 1px solid #E8EAF6 !important;
+}
+
+.select2{
+  width:  auto !important;;
   margin-right: 10px;
   border-radius: 0 !important;
   border: 1px solid #E8EAF6 !important;
@@ -206,14 +212,14 @@ span {
   display: flex
 }
 
-.size{
+.size2{
   display: flex;
   margin-bottom: 1rem;
   flex-wrap: wrap;
   width: 100%
 }
 
-.size > p {
+.size2 > p {
   margin-bottom: 0;
   margin-top: 5px;
 }
@@ -288,7 +294,8 @@ a{
 }
 
 .mailto:hover{
-  color: #01394655
+  color: #01394655;
+  font-weight: normal;
 }
 
 .count-cart{
@@ -297,6 +304,11 @@ a{
   justify-content: space-evenly;
   align-items: center;
 }
+
+.mailto{
+  font-weight:normal
+}
+
 
 @media only screen and (max-width: 991px) {
   .title_product {

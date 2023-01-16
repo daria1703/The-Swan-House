@@ -13,6 +13,8 @@ const Product = () => {
 
   const { _id } = useParams();
   const [product, setProduct] = useState([]);
+  const [quantity, setQuantity] = useState(0);
+  const [size, setSize] = useState("") 
 
   const fetchProduct = async (_id) => {
 
@@ -27,6 +29,14 @@ const Product = () => {
   useEffect(() => {
     fetchProduct(_id);
   }, [_id]);
+
+  const handleQuantity = (type) => {
+    if (type === "dec"){
+     quantity > 0 && setQuantity(quantity - 1);
+    } else {
+      setQuantity(quantity + 1);
+    }
+  }
 
   return (
     <div className="container">
@@ -46,31 +56,13 @@ const Product = () => {
             <StarOutlineIcon/>
             <p>(0)</p>
           </div>
-          <div className="size">
+          <div className="size2">
             <p>Check your size: &nbsp;</p>
-            <Form.Select name="size" aria-label="size" className="select">
-           {product.size.map((s) =>(
-            <option value="4" key={s}>{s}</option>
-           ))}
-           
-           <option value="5">{product.size}</option>
-           <option value="6">{product.size}</option>
-           <option value="7">{product.size}</option>
-           <option value="8">{product.size}</option>
-           <option value="9">{product.size}</option>
+            <Form.Select name="sizese" aria-label="sizese" className="select2" onClick={(e) => setSize(e.target.value)}>
+            {product.size?.map((s) => (
+                  <option key={s}>{s}</option>
+                ))}
          </Form.Select>
-            
-            {/* <div className="sizes"> 
-              <a href="/">
-                <div className="button-size">48</div>
-              </a>
-              <a href="/">
-                <div className="button-size">48</div>
-              </a>
-              <a href="/">
-                <div className="button-size">48</div>
-              </a>
-            </div> */}
           </div>
           <div className="lists">
           <div className="btn-wishlist">
@@ -80,11 +72,11 @@ const Product = () => {
             </a>
           </div>
           <div className="count-cart">
-            <AddIcon/>
+            <AddIcon onClick={()=>handleQuantity("inc")}/>
               <div className="amount">
-                1
+                {quantity}
               </div>
-            < RemoveIcon/>
+            < RemoveIcon onClick={()=>handleQuantity("dec")}/>
             <a href="/">
                 <div className="btn-add-to-cart">Add To Cart</div>
             </a>
@@ -131,30 +123,6 @@ const Product = () => {
         </div>
       </div>
 
-
-// <div className="container">
-//       <div className='row'>
-//         <div className='col-md-6 col-sm-12 img_title'>
-//           <img className='product_img img_fluid' src={product.img} alt={product.product_name} />
-//         </div>
-//         <div className='col-md-6 col-sm-12 product_table'>
-//           <p>
-//             {product.product_name} <br/>
-//             {product.price} zł <br />
-//             Materiał: {product.matter} <br />
-//             Próba kruszcu: {product.assay} karat<br />
-//             Rozmiar: {product.size} <br />
-//             Producent: {product.brand} <br />
-//             Kategoria: {product.category} <br />
-//             Opis: {product.description} <br/>
-//             {/* Cena netto: {product.net_price} */}
-//           </p>
-//         </div>
-//         {/* <button type="submit" className="button2">
-//                 <Link class="link-btn2" to={'/home'}>Back</Link></button> */}
-//       </div>
-
-//     </div>
 
     
   );
