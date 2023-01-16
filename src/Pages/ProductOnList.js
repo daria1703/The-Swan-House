@@ -20,9 +20,9 @@ const ProductOnList = ({item}) => {
                    {item.product_name}</p>
                </Link>
                  <p className="product-p">${item.net_price}</p>
-               <Button className="btn-product">
+               {/* <Button className="btn-product">
                  Add to cart
-               </Button>
+               </Button> */}
                <div className="icons">
                  <a href="#!"><LocalMallOutlinedIcon className="icon" /></a>
                  <Link to={`/product/${item._id}`}><SearchOutlinedIcon className="icon"/></Link>

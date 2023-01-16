@@ -109,7 +109,7 @@
 .icons{
   /* flex-direction: column; */
   display: flex;
-  top:57%;
+  top:65%;
   right: 10px;
   width: fit-content;
   height: fit-content;

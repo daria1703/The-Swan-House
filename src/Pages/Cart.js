@@ -5,8 +5,9 @@ import Add from '@mui/icons-material/Add';
 import Remove from '@mui/icons-material/Remove';
 import k1 from '../img/k1.jpg'
 import p1 from '../img/p1.jpg'
+import { useSelector } from 'react-redux'
 
-export default class Cart extends React.Component {
+const Cart = () => {
 
     // constructor(props) {
     // 	super(props)
@@ -39,9 +40,7 @@ export default class Cart extends React.Component {
     //         alert(data.status);
     //     })
     // }
-
-
-    render() {
+      const cart = useSelector(state=>state.cart)
         return (
             <div className="container">
               <div className="wraper1">
@@ -56,85 +55,37 @@ export default class Cart extends React.Component {
                 </div>
                 <div className="bottom">
                   <div className="info2">
-                    <div className="product1">
+                   {cart.products.map(product=>( 
+                   <div className="product1">
                       <div className="product_detail1">
-                        <img className="image" src={p1} />
+                        <img className="image" src={product.img} />
                         <div className="details1">
                           <div className="product_name1">
-                            <b>Product:</b> Coliber Ring
+                            <b>Product:</b> {product.product_name}
                           </div>
                           <div className="product_id">
-                            <b>ID:</b> 93813718293
+                            <b>ID:</b> {product._id}
                           </div>
                           <div className="product_size">
-                            <b>Size:</b> 37.5
+                            <b>Size:</b> {product.size}
                           </div>
                         </div>
                       </div>
                       <div className="price_detail">
                         <div className="product_amount_container">
                           <Add />
-                          <div className="product_amount">1</div>
+                          <div className="product_amount">{product.quantity}</div>
                           <Remove />
                         </div>
-                        <div className="product_price">$ 180</div>
+                        <div className="product_price">$ {product.net_price*product.quantity}</div>
                       </div>
-                    </div>
-                    <hr />
-                    <div className="product1">
-                      <div className="product_detail1">
-                        <img className="image" src={k1} />
-                        <div className="details1">
-                          <div className="product_name1">
-                            <b>Product:</b> Earring With Pearl
-                          </div>
-                          <div className="product_id">
-                            <b>ID:</b> 93813718293
-                          </div>
-                          <div className="product_size">
-                            <b>Size:</b> 37.5
-                          </div>
-                        </div>
-                      </div>
-                      <div className="price_detail">
-                        <div className="product_amount_container">
-                          <Add />
-                          <div className="product_amount">1</div>
-                          <Remove />
-                        </div>
-                        <div className="product_price">$ 200</div>
-                      </div>
-                    </div>
-                    <div className="product1">
-                      <div className="product_detail1">
-                        <img className="image" src={k1} />
-                        <div className="details1">
-                          <div className="product_name1">
-                            <b>Product:</b> Earring With Pearl
-                          </div>
-                          <div className="product_id">
-                            <b>ID:</b> 93813718293
-                          </div>
-                          <div className="product_size">
-                            <b>Size:</b> 37.5
-                          </div>
-                        </div>
-                      </div>
-                      <div className="price_detail">
-                        <div className="product_amount_container">
-                          <Add />
-                          <div className="product_amount">1</div>
-                          <Remove />
-                        </div>
-                        <div className="product_price">$ 200</div>
-                      </div>
-                    </div>
+                    </div>))}
                   </div>
                   <div className="summary">
                     <h2 className="summary_title">Order Summary</h2>
                     <div className="summary_item">
                         <div className="summary_item_text">Subtotal</div>
-                        <div className="summary_item_price">$ 380</div>
+                        <div className="summary_item_price">$ {cart.total}</div>
                     </div>
                     <div className="summary_item">
                         <div className="summary_item_text">Estimated Shipping</div>
@@ -146,7 +97,7 @@ export default class Cart extends React.Component {
                     </div>
                     <div className="summary_item">
                         <div className="summary_item_text" type="total">Total</div>
-                        <div className="summary_item_price">$ 380</div>
+                        <div className="summary_item_price">$ {cart.total}</div>
                     </div>
                     <a href="" className="btn btn-primary check-btn top_button"><div>CHECKOUT NOW</div></a>
                 </div>
@@ -154,5 +105,6 @@ export default class Cart extends React.Component {
               </div>
             </div>
           );
-    }
 }
+
+export default Cart

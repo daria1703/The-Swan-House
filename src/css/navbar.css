@@ -65,6 +65,10 @@
     color:"#013946" !important
 }
 
+.cart_badge{
+    background-color: #013946 !important
+  }
+
 .belka_gorna{
     height: fit-content;
     font-size: 14px;

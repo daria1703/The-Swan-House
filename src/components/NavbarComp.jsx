@@ -25,13 +25,26 @@ import "../css/navbar.css";
 import search from "../img/search.png"
 // import ShoppingBagOutlinedIcon from '@mui/icons-material/ShoppingBagOutlined';
 import Badge from '@mui/material/Badge';
+import {useSelector} from "react-redux";
+import { useState } from 'react';
+import Alert from 'react-bootstrap/Alert';
+import Offcanvas from 'react-bootstrap/Offcanvas';
+import Add from '@mui/icons-material/Add';
+import Remove from '@mui/icons-material/Remove';
 
+const NavbarComp = () => {
 
-export default class NavbarComp extends Component {
-  render() {
-    
+  const cart = useSelector(state=>state.cart)
+  const [show, setShow] = useState(false);
+
+  const handleClose = () => setShow(false);
+  const handleShow = () => setShow(true);
+
+  const quantity = useSelector(state=>state.cart.quantity)
+    console.log(quantity)
     return (
       <Router>
+        
         <Navbar  expand="lg">
           <Container fluid className="menu">
             <Row>
@@ -74,21 +87,9 @@ export default class NavbarComp extends Component {
                     className="d-inline-block align-center"
                   />
                 </Navbar.Brand>
-                <Navbar.Brand href="/">
-                {/* <Badge className="badge_search">
-                <img
-                    alt="bascet"
-                    src={bascet}
-                    width="23"
-                    height="25"
-                    padding-bottom="3px"
-                    className="d-inline-block align-center"
-                  />
-                  4
-                </Badge>
-                    <span className="visually-hidden">unread messages</span> */}
-                    <Badge badgeContent={4} color="primary">
-                      {/* <ShoppingBagOutlinedIcon color="action" className="shopping-bag"/> */}
+                <Navbar.Brand>
+                
+                <Badge badgeContent={quantity} color="primary" onClick={handleShow}>
                       <img
                     alt="bascet"
                     src={bascet}
@@ -96,7 +97,36 @@ export default class NavbarComp extends Component {
                     height="25"
                     className="d-inline-block align-center"
                   />
-                    </Badge>
+                  </Badge>
+                  <Offcanvas show={show} onHide={handleClose}>
+                    <Offcanvas.Header closeButton>
+                      <Offcanvas.Title>Cart</Offcanvas.Title>
+                    </Offcanvas.Header>
+                    <Offcanvas.Body>
+                      <div className="info3">
+                   {cart.products.map(product=>( 
+                   <div className="product4">
+                      <div className="product_detail1">
+                        <img className="image" src={product.img} />
+                        <div className="details1">
+                          <div className="product_name1">
+                            <b>Product:</b> {product.product_name}
+                          </div>
+                          <div className="product_size">
+                            <b>Size:</b> {product.size}
+                          </div>
+                          <div className="product_size">
+                            <b>Quantity:</b> {product.quantity}
+                          </div>
+                          <div className="product_name1"><b>Price: </b>$ {product.net_price*product.quantity}</div>
+                        </div>
+                      </div>
+                    </div>))}
+                  </div>
+                      <Link className="btn-add-to-cart" to={"/cart"} >Go to Cart</Link>
+                    </Offcanvas.Body>
+                  </Offcanvas>
+
                 </Navbar.Brand>
                 <Navbar.Brand href="/">
                   <img
@@ -172,5 +202,6 @@ export default class NavbarComp extends Component {
       </Router>
 
     )
-  }
 }
+
+export default NavbarComp

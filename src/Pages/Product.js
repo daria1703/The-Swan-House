@@ -6,8 +6,10 @@ import FavoriteIcon from '@mui/icons-material/Favorite';
 import AddIcon from '@mui/icons-material/Add';
 import RemoveIcon from '@mui/icons-material/Remove';
 import {Button ,Container, Form, Select} from 'react-bootstrap'
+import { Link } from 'react-router-dom'
 import '../App.css';
-
+import { addProduct } from "../redux/cartRedux"
+import { useDispatch } from "react-redux";
 
 const Product = () => {
 
@@ -15,6 +17,7 @@ const Product = () => {
   const [product, setProduct] = useState([]);
   const [quantity, setQuantity] = useState(0);
   const [size, setSize] = useState("") 
+  const dispatch = useDispatch();
 
   const fetchProduct = async (_id) => {
 
@@ -37,6 +40,10 @@ const Product = () => {
       setQuantity(quantity + 1);
     }
   }
+
+  const handleClick = () =>{
+    dispatch(addProduct({...product, quantity, size}));
+  };
 
   return (
     <div className="container">
@@ -77,9 +84,9 @@ const Product = () => {
                 {quantity}
               </div>
             < RemoveIcon onClick={()=>handleQuantity("dec")}/>
-            <a href="/">
-                <div className="btn-add-to-cart">Add To Cart</div>
-            </a>
+            <Link>
+                <div className="btn-add-to-cart" onClick={handleClick}>Add To Cart</div>
+            </Link>
           </div>
           </div>
         </div>
