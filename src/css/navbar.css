@@ -1,0 +1,102 @@
+.navbar{
+    background-color: #F9F9F9
+}
+.nav_swan {
+    background-color: pink;
+    justify-content: end;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    padding: 0;
+}
+
+.search {
+    display: inherit;
+    align-items: center;
+    justify-content: flex-end;
+    padding: 0;
+}
+
+.button_search{
+    background: none;
+    border: none;
+}
+
+.searcher{
+    border: 1px solid lightgray;
+    height: 35px;
+    display: flex;
+    align-items: center;
+    width: 200px;
+    justify-content: flex-end;
+    border-radius: 0;
+}
+
+.nav_ico {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    padding: 0;
+}
+
+.menu {
+    display: inline-block !important
+}
+
+.menu_2 {
+    justify-content: center
+}
+
+.search-block {
+    display: flex;
+    justify-content: flex-end;
+    padding: 20px 20px
+}
+
+.badge_search{
+    background: none !important;
+    color: #000
+}
+
+.primary{
+    color:"#013946" !important
+}
+
+.belka_gorna{
+    height: fit-content;
+    font-size: 14px;
+    background-color: #013946;
+    color: #fff;
+    text-align: center;
+    padding-top: 10px;
+    padding-bottom: 10px
+}
+
+@media only screen and (max-width: 991px) {
+    .logo {
+        justify-content: center;
+        padding-bottom: 8px
+    }
+
+    .search {
+        justify-content: center;
+    }
+    .nav_ico{
+        visibility: hidden;
+    }
+}
+
+.button_search{
+    padding:0;
+    padding-left: 10px
+}
+
+.button_search:hover{
+    background-color: transparent;
+    padding: 0;
+    padding-left: 10px;
+    border: none
+}
