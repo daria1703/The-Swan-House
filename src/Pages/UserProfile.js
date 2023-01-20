@@ -1,5 +1,7 @@
 import React from "react";
-
+import user from '../img/userProfile.png'
+import { Link } from 'react-router-dom'
+import "../css/userProfile.css";
 export default class UserProfile extends React.Component{
 
     constructor(props){
@@ -34,6 +36,7 @@ export default class UserProfile extends React.Component{
         })
 	}
 
+
     logout=()=>{
         window.localStorage.clear();
         window.location.href="./";
@@ -41,10 +44,17 @@ export default class UserProfile extends React.Component{
 
     render(){
         return(
-            <div>
-                Name: {this.state.userData.name} <br/>
-                Email: {this.state.userData.email}
+            <div className="profile_container">
+                <p>
+                <img className="user_img" src={user} alt={this.state.userData.name} /><br/>
+                <p className="user_name">{this.state.userData.name} {this.state.userData.lastName} <br/><span className="email_user">{this.state.userData.email}</span></p>
+             <br/> <strong>Your ID: </strong>{this.state.userData._id} <br/>
+                <p className="margin_link"><Link  to={`/resetPassword`}>Forgot Password?</Link></p>
+                
+                <Link className="margin_link" to={`/personRemove`}>Delete Your Account</Link>
+                <br/>
                 <button onClick={this.logout} className="btn btn-primary btn-login">Log out</button>
+                </p>
             </div>
         )
     }

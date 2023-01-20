@@ -5,6 +5,7 @@ import '../App.css';
 import LocalMallOutlinedIcon from '@mui/icons-material/LocalMallOutlined';
 import FavoriteBorderOutlinedIcon from '@mui/icons-material/FavoriteBorderOutlined';
 import SearchOutlinedIcon from '@mui/icons-material/SearchOutlined';
+import ProductPopUp from "../components/Modal"
 
 const ProductOnList = ({item}) => {
 
@@ -24,8 +25,9 @@ const ProductOnList = ({item}) => {
                  Add to cart
                </Button> */}
                <div className="icons">
-                 <a href="#!"><LocalMallOutlinedIcon className="icon" /></a>
-                 <Link to={`/product/${item._id}`}><SearchOutlinedIcon className="icon"/></Link>
+                 <Link to={`/product/${item._id}`}><LocalMallOutlinedIcon className="icon" /></Link>
+                 <ProductPopUp item={item} key={item.id}/>
+                 {/* <Link ><SearchOutlinedIcon className="icon"/></Link> */}
                  <a href="#!"><FavoriteBorderOutlinedIcon className="icon"/></a>
                </div>  
              </div>

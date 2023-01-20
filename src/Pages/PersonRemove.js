@@ -24,15 +24,23 @@ export default class PersonRemove extends React.Component {
       })
   }
 
+  logout=()=>{
+    window.localStorage.clear();
+    window.location.href="./";
+}
+
   render() {
     return (
-      <div>
+      <div className="profile_container">
+        <h1 className="title">Are You Sure?</h1>
+        <p>To delete your account, please enter your ID <br/> (you will find it on your account) </p>
         <form onSubmit={this.handleSubmit}>
           <label>
-            Person ID:
-            <input type="text" name="_id" onChange={this.handleChange} />
+            Person ID: 
+            <input className="delete_input" type="text" name="_id" onChange={this.handleChange} />
           </label>
-          <button type="submit">Delete</button>
+          <br/>
+          <button onClick={this.logout} className="btn primary-btn delete_button" type="submit">Delete</button>
         </form>
       </div>
     )

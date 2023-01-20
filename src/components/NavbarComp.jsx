@@ -1,4 +1,3 @@
-import React, { Component } from 'react'
 import { Navbar, Nav, NavDropdown, Container, Form, Button, Row, Col } from 'react-bootstrap'
 import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom'
 import Home from '../Pages/Home';
@@ -14,23 +13,19 @@ import PersonAdd from '../Pages/PersonAdd';
 import PersonRemove from '../Pages/PersonRemove';
 // import PersonUpdate from './Pages/PersonUpdate'
 import Login from '../Pages/Login';
-import Payment from "../Pages/Payment"
 import UserProfile from '../Pages/UserProfile';
 import ResetPassword from '../Pages/ResetPassword';
+import Success from "../Pages/Success";
 import logo from '../img/logo.png';
 import bascet from '../img/koszyk.png';
 import heart from '../img/heart.png';
 import user from '../img/user.png';
 import "../css/navbar.css";
 import search from "../img/search.png"
-// import ShoppingBagOutlinedIcon from '@mui/icons-material/ShoppingBagOutlined';
 import Badge from '@mui/material/Badge';
 import {useSelector} from "react-redux";
 import { useState } from 'react';
-import Alert from 'react-bootstrap/Alert';
 import Offcanvas from 'react-bootstrap/Offcanvas';
-import Add from '@mui/icons-material/Add';
-import Remove from '@mui/icons-material/Remove';
 
 const NavbarComp = () => {
 
@@ -41,7 +36,7 @@ const NavbarComp = () => {
   const handleShow = () => setShow(true);
 
   const quantity = useSelector(state=>state.cart.quantity)
-    console.log(quantity)
+
     return (
       <Router>
         
@@ -78,7 +73,8 @@ const NavbarComp = () => {
                 </Form>
               </Col>
               <Col lg={2} className="nav_ico .d-sm-none .d-md-nome">
-                <Navbar.Brand href="/">
+                <Navbar.Brand>
+                  <Link to={`/userProfile`}>
                   <img
                     alt="user"
                     src={user}
@@ -86,6 +82,7 @@ const NavbarComp = () => {
                     height="35"
                     className="d-inline-block align-center"
                   />
+                  </Link>
                 </Navbar.Brand>
                 <Navbar.Brand>
                 
@@ -156,7 +153,6 @@ const NavbarComp = () => {
                     <Nav.Link as={Link} to={"/personList"}>Users</Nav.Link>
                     <Nav.Link as={Link} to={"/personAdd"}>Register</Nav.Link>
                     <Nav.Link as={Link} to={"/login"}>Login</Nav.Link>
-                    <Nav.Link as={Link} to={"/payment"}>Payment</Nav.Link>
                     <Nav.Link as={Link} to={"/cart"}>Cart</Nav.Link>
                     <NavDropdown title="Account" id="navbarScrollingDropdown">
                       <NavDropdown.Item as={Link} to={"/userProfile"}>Profile</NavDropdown.Item>
@@ -175,9 +171,6 @@ const NavbarComp = () => {
               </Col>
             </Row>
 
-
-
-
           </Container>
         </Navbar>
         <Routes>
@@ -191,11 +184,12 @@ const NavbarComp = () => {
           <Route path="/personAdd" element={<PersonAdd />} />
           <Route path="/personRemove" element={<PersonRemove />} />
           <Route path="/login" element={<Login />} />
-          <Route path="/payment" element={<Payment />} />
+          {/* <Route path="/payment" element={<Payment />} /> */}
           <Route path="/cart" element={<Cart />} />
           <Route path="/userProfile" element={<UserProfile />} />
           {/* <Route path="/login" element={isLoggedIn == "ture" ? <UserProfile/> : <Login />} /> */}
           <Route path="/resetPassword" element={<ResetPassword />} />
+          <Route path="/success" element={<Success/>} />
           {/* <Route path="/personUpdate" element={<PersonUpdate />} /> */}
           <Route path="*" element={<ErrorPage />} />
         </Routes>

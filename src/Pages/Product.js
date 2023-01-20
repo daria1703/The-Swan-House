@@ -74,9 +74,9 @@ const Product = () => {
           <div className="lists">
           <div className="btn-wishlist">
           <p>Add To Wishlist &nbsp;</p>
-            <a href="/">
-                <FavoriteIcon/>
-            </a>
+            <Link>
+                <FavoriteIcon />
+            </Link>
           </div>
           <div className="count-cart">
             <AddIcon onClick={()=>handleQuantity("inc")}/>
@@ -84,7 +84,7 @@ const Product = () => {
                 {quantity}
               </div>
             < RemoveIcon onClick={()=>handleQuantity("dec")}/>
-            <Link>
+            <Link to={`/cart`}>
                 <div className="btn-add-to-cart" onClick={handleClick}>Add To Cart</div>
             </Link>
           </div>
@@ -104,11 +104,18 @@ const Product = () => {
               {product.description}
             </div>
             <div className="col-lg-6 col-sm-12"> 
-                Ore: {product.matter} <br />
+                Material: {product.matter} <br />
                 Assay: {product.assay} carats<br />
-                Size: {product.size} <br />
+                <div className="table_size">
+                Size: {product.size?.map((s) => (
+                  <p  key={s}>&nbsp;{s},</p>
+                ))} <br />
+                </div>
                 Brand: {product.brand} <br />
-                Category: {product.category} <br />
+                <div className="table_size">
+                Category: {product.category?.map((s) => (
+                  <p  key={s}>&nbsp;{s},</p>
+                ))} </div><br />
             </div>
           </div>
         </Accordion.Body>

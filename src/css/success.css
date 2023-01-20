@@ -1,0 +1,42 @@
+.img_succes_container{
+    position: relative;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 30px;
+}
+
+.logo_scuccess{
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    top: 10;
+}
+
+.check_scuccess{
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    margin-top: 28vh;
+}
+
+.title_succes{
+    margin: 30px 70px 30px 75px;
+    color: #103946;
+    text-transform: capitalize;
+    text-align: center;
+  }
+
+  .thank_you{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .top_button2{
+    background-color: #103946;
+    padding: 10px;
+    border-radius: 0px;
+    color: #fff;
+    width: fit-content;
+}
