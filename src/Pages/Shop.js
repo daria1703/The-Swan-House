@@ -145,12 +145,6 @@ const Shop = () => {
         <h1 className="title">{cat}</h1>
        <div className="filters">
         <div className="filter">
-        {/* <Form.Select name="weight" onClick={handleFilters} aria-label="weight" className="select">
-           <option>Weight</option>
-           <option value="1">1</option>
-           <option value="2">2</option>
-          <option value="3">3</option>
-         </Form.Select> */}
          <Form.Select name="size" onClick={handleFilters} aria-label="size" className="select">
             <option >Size</option>
             <option value="4">4</option>
@@ -165,7 +159,23 @@ const Shop = () => {
             <option value="YES">YES</option>
             <option value="APART">APART</option>
             <option value="W.KRUK">W.KRUK</option>
+            <option value="SayYES">SayYES</option>
          </Form.Select>
+         <Form.Select name="matter" onClick={handleFilters} aria-label="matter" className="select">
+            <option >Matter</option>
+            <option value="Gold">Gold</option>
+            <option value="Silver">Silver</option>
+         </Form.Select>
+         <Form.Select name="assay" onClick={handleFilters} aria-label="assay" className="select">
+            <option >Assay</option>
+            <option value="585">585</option>
+            <option value="925">925</option>
+         </Form.Select>
+         {/* <Form.Select name="weight" onClick={handleFilters} aria-label="weight" className="select">
+           <option>Weight</option>
+           <option value="5">5</option>
+           <option value="6">6</option>
+         </Form.Select> */}
         </div>
         <div className="filter">
         

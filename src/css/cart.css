@@ -62,6 +62,13 @@
     margin: 0 30px 0 30px 
 }
 
+.product2{
+    display: flex;
+    justify-content: space-between;
+    border: 1px solid #E8EAF6;
+    margin: 0 30px 30px 30px 
+}
+
 .product_detail1{
     flex: 2;
     display: flex;

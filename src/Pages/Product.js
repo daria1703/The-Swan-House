@@ -9,6 +9,7 @@ import {Button ,Container, Form, Select} from 'react-bootstrap'
 import { Link } from 'react-router-dom'
 import '../App.css';
 import { addProduct } from "../redux/cartRedux"
+import { addWish } from "../redux/wishRedux"
 import { useDispatch } from "react-redux";
 
 const Product = () => {
@@ -45,6 +46,10 @@ const Product = () => {
     dispatch(addProduct({...product, quantity, size}));
   };
 
+  const handleClick2 = () =>{
+    dispatch(addWish({...product, quantity, size}));
+  };
+
   return (
     <div className="container">
       <div className='row'>
@@ -74,8 +79,8 @@ const Product = () => {
           <div className="lists">
           <div className="btn-wishlist">
           <p>Add To Wishlist &nbsp;</p>
-            <Link>
-                <FavoriteIcon />
+              <Link to={`/wishlist`}>
+                <div onClick={handleClick2}><FavoriteIcon/></div>
             </Link>
           </div>
           <div className="count-cart">
@@ -106,6 +111,7 @@ const Product = () => {
             <div className="col-lg-6 col-sm-12"> 
                 Material: {product.matter} <br />
                 Assay: {product.assay} carats<br />
+                Weight: {product.weight} grams<br/>
                 <div className="table_size">
                 Size: {product.size?.map((s) => (
                   <p  key={s}>&nbsp;{s},</p>
@@ -116,6 +122,7 @@ const Product = () => {
                 Category: {product.category?.map((s) => (
                   <p  key={s}>&nbsp;{s},</p>
                 ))} </div><br />
+                
             </div>
           </div>
         </Accordion.Body>

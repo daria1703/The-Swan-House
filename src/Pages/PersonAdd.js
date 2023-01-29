@@ -30,7 +30,7 @@ export default class PersonAdd extends React.Component {
 			console.log(this.state.password, this.state.reEnteredPassword)
 			alert("posted")
 			axios
-				.post('http://localhost:3000/users/register/', this.state)
+				.post('http://localhost:3000/auth/register/', this.state)
 				.then(response => {
 					console.log(response)
 					window.location.href="./login";

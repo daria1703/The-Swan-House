@@ -66,11 +66,22 @@ input:-webkit-autofill:focus {
   transition: background-color 600000s 0s, color 600000s 0s;
 }
 
+.error{
+    color: #ff0000;
+    margin-bottom: 0;
+    margin-top: 15px;
+}
+
 .btn-login{
     background-color: #103946;
     border: 1px solid #103946;
     margin-top: 10px;
     /* margin-bottom: 20px */
+}
+
+.btn-login:disabled{
+    color: #10394622;
+    cursor: not-allowed;
 }
 
 .login-a{

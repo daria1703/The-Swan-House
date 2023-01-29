@@ -6,8 +6,16 @@ import LocalMallOutlinedIcon from '@mui/icons-material/LocalMallOutlined';
 import FavoriteBorderOutlinedIcon from '@mui/icons-material/FavoriteBorderOutlined';
 import SearchOutlinedIcon from '@mui/icons-material/SearchOutlined';
 import ProductPopUp from "../components/Modal"
+import { addWish } from "../redux/wishRedux"
+import { useDispatch } from "react-redux";
 
 const ProductOnList = ({item}) => {
+
+  const dispatch = useDispatch();
+
+  const handleClick = () =>{
+    dispatch(addWish({...item}));
+  };
 
   return (
     <div className='products_list_container'>
@@ -28,7 +36,7 @@ const ProductOnList = ({item}) => {
                  <Link to={`/product/${item._id}`}><LocalMallOutlinedIcon className="icon" /></Link>
                  <ProductPopUp item={item} key={item.id}/>
                  {/* <Link ><SearchOutlinedIcon className="icon"/></Link> */}
-                 <a href="#!"><FavoriteBorderOutlinedIcon className="icon"/></a>
+                 <a href="#!" onClick={handleClick}><FavoriteBorderOutlinedIcon className="icon"/></a>
                </div>  
              </div>
            </div>

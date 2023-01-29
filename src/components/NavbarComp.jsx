@@ -1,5 +1,5 @@
 import { Navbar, Nav, NavDropdown, Container, Form, Button, Row, Col } from 'react-bootstrap'
-import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom'
+import { BrowserRouter as Router, Routes, Route, Link, Navigate } from 'react-router-dom'
 import Home from '../Pages/Home';
 import Shop from '../Pages/Shop';
 import About from '../Pages/About';
@@ -19,23 +19,31 @@ import Success from "../Pages/Success";
 import logo from '../img/logo.png';
 import bascet from '../img/koszyk.png';
 import heart from '../img/heart.png';
-import user from '../img/user.png';
+import userICO from '../img/user.png';
 import "../css/navbar.css";
 import search from "../img/search.png"
 import Badge from '@mui/material/Badge';
 import {useSelector} from "react-redux";
-import { useState } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import Offcanvas from 'react-bootstrap/Offcanvas';
+import SearchBar from "../components/SearchBar"
+import lottie from 'lottie-web'
+import WishList from "../Pages/WishList"
+
 
 const NavbarComp = () => {
 
-  const cart = useSelector(state=>state.cart)
+  const cart = useSelector(state=>state.user.cart)
+  const wish = useSelector(state=>state.user.wish)
   const [show, setShow] = useState(false);
 
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
 
-  const quantity = useSelector(state=>state.cart.quantity)
+  const quantity = useSelector(state=>state.user.cart.quantity)
+  const wish_quantity = useSelector(state=>state.user.wish.quantity)
+
+  const user = useSelector((state) => state.user.currentUser);
 
     return (
       <Router>
@@ -62,13 +70,7 @@ const NavbarComp = () => {
                     className="searcher"
                     aria-label="Search"
                   />
-                  <Button className="button_search"><img
-                    alt="user"
-                    src={search}
-                    width="20"
-                    height="20"
-                    className="d-inline-block align-center"
-                  /></Button>
+                  <SearchBar/>
                   
                 </Form>
               </Col>
@@ -77,7 +79,7 @@ const NavbarComp = () => {
                   <Link to={`/userProfile`}>
                   <img
                     alt="user"
-                    src={user}
+                    src={userICO}
                     width="35"
                     height="35"
                     className="d-inline-block align-center"
@@ -95,44 +97,63 @@ const NavbarComp = () => {
                     className="d-inline-block align-center"
                   />
                   </Badge>
+
                   <Offcanvas show={show} onHide={handleClose}>
                     <Offcanvas.Header closeButton>
                       <Offcanvas.Title>Cart</Offcanvas.Title>
                     </Offcanvas.Header>
                     <Offcanvas.Body>
+                      {quantity === 0 ? 
+                      <div className="empty_container2">
+                        <p>Your cart is empty!</p>
+                        
+                        <Link className="btn-add-to-cart" to={"/"} >CONTINUE SHOPPING</Link>
+                      </div> : 
                       <div className="info3">
-                   {cart.products.map(product=>( 
-                   <div className="product4">
-                      <div className="product_detail1">
-                        <img className="image" src={product.img} />
-                        <div className="details1">
-                          <div className="product_name1">
-                            <b>Product:</b> {product.product_name}
-                          </div>
-                          <div className="product_size">
-                            <b>Size:</b> {product.size}
-                          </div>
-                          <div className="product_size">
-                            <b>Quantity:</b> {product.quantity}
-                          </div>
-                          <div className="product_name1"><b>Price: </b>$ {product.net_price*product.quantity}</div>
-                        </div>
-                      </div>
-                    </div>))}
-                  </div>
-                      <Link className="btn-add-to-cart" to={"/cart"} >Go to Cart</Link>
+                      {cart.products.map(product=>( 
+                      <div className="product4">
+                         <div className="product_detail1">
+                           <img className="image" src={product.img} />
+                           <div className="details1">
+                             <div className="product_name1">
+                               <b>Product:</b> {product.product_name}
+                             </div>
+                             <div className="product_size">
+                               <b>Size:</b> {product.size}
+                             </div>
+                             <div className="product_size">
+                               <b>Quantity:</b> {product.quantity}
+                             </div>
+                             <div className="product_name1"><b>Price: </b>$ {product.net_price*product.quantity}</div>
+                           </div>
+                         </div>
+                       </div>))}
+                       <Link className="btn-add-to-cart" to={"/cart"} >Go to Cart</Link>
+                     </div>}
+                      
                     </Offcanvas.Body>
                   </Offcanvas>
 
                 </Navbar.Brand>
-                <Navbar.Brand href="/">
-                  <img
-                    alt="heart"
+                <Navbar.Brand >
+                <Link to={'/wishlist'}>
+                <Badge badgeContent={wish_quantity} color="primary">
+                      <img
+                    alt="wishlist"
                     src={heart}
                     width="25"
                     height="25"
                     className="d-inline-block align-center"
                   />
+                  </Badge>
+                </Link>
+                  {/* <img
+                    alt="heart"
+                    src={heart}
+                    width="25"
+                    height="25"
+                    className="d-inline-block align-center"
+                  /> */}
                 </Navbar.Brand>
               </Col>
             </Row>
@@ -150,22 +171,10 @@ const NavbarComp = () => {
                     <Nav.Link as={Link} to={"/products/woman"}>Shop</Nav.Link>
                     <Nav.Link as={Link} to={"/about"}>About</Nav.Link>
                     <Nav.Link as={Link} to={"/contact"}>Contact</Nav.Link>
-                    <Nav.Link as={Link} to={"/personList"}>Users</Nav.Link>
+                    {/* <Nav.Link as={Link} to={"/personList"}>Users</Nav.Link> */}
                     <Nav.Link as={Link} to={"/personAdd"}>Register</Nav.Link>
                     <Nav.Link as={Link} to={"/login"}>Login</Nav.Link>
-                    <Nav.Link as={Link} to={"/cart"}>Cart</Nav.Link>
-                    <NavDropdown title="Account" id="navbarScrollingDropdown">
-                      <NavDropdown.Item as={Link} to={"/userProfile"}>Profile</NavDropdown.Item>
-                      <NavDropdown.Item as={Link} to={"/personRemove"}>Remove your account</NavDropdown.Item>
-                      {/* <NavDropdown.Item as={Link} to={"/resetPassword"}>Reset your password</NavDropdown.Item> */}
-                      <NavDropdown.Divider />
-                      <NavDropdown.Item as={Link} to={"/"}>
-                        Log out
-                      </NavDropdown.Item>
-                    </NavDropdown>
-                    {/* <Nav.Link as={Link} to={"/"}>
-                      Link
-                    </Nav.Link> */}
+                    <Nav.Link as={Link} to={"/wishlist"}>WishList</Nav.Link>
                   </Nav>
                 </Navbar.Collapse>
               </Col>
@@ -181,9 +190,10 @@ const NavbarComp = () => {
           <Route path="/about" element={<About />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/personList" element={<PersonList />} />
-          <Route path="/personAdd" element={<PersonAdd />} />
+          <Route path = "/personAdd" element={user ? <Navigate to="/" replace /> :  <PersonAdd />} />
           <Route path="/personRemove" element={<PersonRemove />} />
-          <Route path="/login" element={<Login />} />
+          <Route path="/login" element={user ? <Navigate to="/" replace /> :  <Login />}  />
+          <Route path="/wishlist" element={<WishList />} />
           {/* <Route path="/payment" element={<Payment />} /> */}
           <Route path="/cart" element={<Cart />} />
           <Route path="/userProfile" element={<UserProfile />} />

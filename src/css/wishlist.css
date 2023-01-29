@@ -1,0 +1,26 @@
+.products_list_container2{
+    display: inline-flex;
+    flex-wrap: wrap;
+    text-align: center;
+    justify-content: space-around;
+}
+
+.product3{
+    display: flex;
+    justify-content: space-between;
+    border: 1px solid #E8EAF6;
+    margin: 0 30px 30px 30px;
+    width: 500px; 
+}
+
+.product_detail2{
+    display: flex;
+}
+
+.product3 > a{
+    color: #000
+}
+
+.product3 > a:hover{
+    color: #00000077
+}

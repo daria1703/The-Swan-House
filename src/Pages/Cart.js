@@ -16,7 +16,7 @@ const KEY = process.env.REACT_APP_STRIPE
 
 const Cart = () => {
 
-  const cart = useSelector((state)=>state.cart);
+  const cart = useSelector((state)=>state.user.cart);
   const [stripeToken, setStripeToken] = useState(null)
   let navigate = useNavigate();
 
@@ -48,12 +48,13 @@ const Cart = () => {
                 <div className="top">
                 <a href=""><div className="btn primary-btn top_button">CONTINUE SHOPPING</div></a>
                   <div className="top_texts">
-                    <div className="top_text">Shopping Bag(2)</div>
+                    <div className="top_text">Shopping Bag </div>
                     <div className="top_text">Your Wishlist (0)</div>
                   </div>
+                  {stripeToken ? (<span>Processing. Please wait...</span>) :
                   <StripeCheckout name="The Swan House" billingAddress shippingAddress description = {`Your total is $${cart.total}`} amount={cart.total*100} token={onToken} stripeKey={KEY}>
                     <a><div className="btn primary-btn top_button">CHECKOUT NOW</div></a>
-                    </StripeCheckout>
+                    </StripeCheckout>}
                 </div>
                 <div className="bottom">
                   <div className="info2">
