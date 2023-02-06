@@ -60,7 +60,7 @@
   text-align: center;
   /* border: 1px solid #777; */
   justify-content: center;
-  padding: 50px;
+  padding: 40px 10px 5px 10px;
   justify-content: space-around;
   /* background-color: pink */
 }
